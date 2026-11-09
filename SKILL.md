@@ -1,204 +1,138 @@
 ---
-name: rams-ui-design
-description: UI/UX guidance for apps, dev/desktop tools and games. Use when building, changing or reviewing any screen, dialog, form, menu, toolbar, settings page, HUD, onboarding, keyboard shortcuts or controller/input scheme, or when asked whether a UI is clear, cluttered, consistent or accessible. Based on Dieter Rams' ten principles.
+name: rams-design-for-use
+description: Dieter Rams' design philosophy applied to how software is used, the ergonomics of operating apps, tools and games alike, through every channel (mouse, keyboard, controller, pen, touch, voice) and not only the visible interface. Its core: you design for other people, never for yourself or for the AI, so never infer from your own knowledge, habits or abilities. Use when designing, building or reviewing anything people operate (screens, dialogs, forms, menus, toolbars, settings, HUDs, onboarding, error messages, notifications, wording and labels, shortcuts, controller, pen, touch or voice input, command-line tools, configuration), or when asked whether something is clear, usable, accessible, cluttered, confusing, inconsistent or tiring. Not for backend-only work or bug fixes with no effect on how something is operated.
 ---
 
-# Good UI/UX Design: Dieter Rams' Ten Principles for Software and Games
+# Designing for others: Dieter Rams' design philosophy applied to how software is used
 
-This skill translates Dieter Rams' ten principles of good design into rules for applications, tools and games. **Part 1 (Core)** governs every UI task. **Part 2 (Reference)** adds per-principle detail and anti-patterns: consult it when reviewing, or when unsure how a principle applies.
+Rams designed physical products at Braun, not software, and he wrote no rules for screens. His way of thinking about use has inspired generations of designers; Apple under Jony Ive carried it into digital products most visibly. What they took was a way of thinking, not a look to copy. This skill gives you that way of thinking, to apply to how software is used, together with the person in front of the screen.
 
-The skill doesn't replace a design system. Take concrete values (type scale, colors, spacing, components) from the project. This skill makes sure they're used with purpose and consistency.
+It is about use: how easily people find, understand, reach and trust what they need, in an app, a tool or a game alike. Use is more than the visible interface. People operate software with mouse, keyboard, controller, pen, touch and voice, and through what they hear, feel and type outside any window: sounds and vibration, notifications, commands, configuration. Every one of these channels is part of the design.
 
-**Scope:** For a change that touches one component and adds no new flow, do steps 4–6 only, and state in one line which frequency class the touched action belongs to. Run the full workflow for new screens, new flows and reviews.
+This is a philosophy, not a rulebook: its purpose is to make you internalize what matters and to keep that awareness awake while you work. It gives you no fixed values (sizes, spacing, colors, timings, contrast), because good values follow from the people and their situation, not from a table. When you set or create them, derive each one from the people in step 1 (for a small change: the people who touch this control): how far away they are, what they hold, how well they see and hear, how tired they are. Say in one line which person and situation a new value serves, so it can be checked. Platform guidelines and accessibility standards are the floor, not the goal. Where the project already has a design system, work within it; where it fails the people in step 1, say so in one line (see Precedence).
 
----
+References, read when needed (skip both for small changes):
+- `references/principles.md`: the ten principles applied to operation, with failure patterns. Always read it before an explicit review, or when unsure how a principle applies.
+- `references/braun.md`: what made Braun under Rams different, in sourced voices, and what it means for software. Read it when you need the spirit behind a decision, or the person asks why.
 
-# Part 1: Core
+## The one idea: you are not the user
+
+Whatever you are working on, you are not making it for yourself or for the AI. If you were the only one who ever operates it, you would not need this skill. You are making it for other people, and they are not like you.
+
+You know things they don't:
+- You know how it works inside, what every term means, and why it was built this way.
+- You know where everything is, because you put it there.
+- You have the full context of the task, right now, rested and focused.
+- You see it on your screen, with your input device, your data, your language and your abilities.
+
+They have none of that. They arrive tired, distracted, interrupted, after a long day, with different eyes, hands, devices and words. So:
+
+- **Never infer from yourself to others.** "I find this obvious" or "I would just press X" is not evidence; it is the bias this skill exists to break. Knowing something makes it hard to imagine not knowing it.
+- **Ask who else will operate it.** If you cannot name anyone, assume the least favorable realistic person (first time, tired, no shortcuts), say so in one line, and continue.
+- **Treat every assumption about people as an assumption.** Say it out loud ("Assuming: occasional users, mostly on touch"), and check it against real people whenever you can: watching someone use it beats any argument.
+
+Rams called indifference towards people and the reality they live in "the one and only cardinal sin in design." That indifference most often looks like designing for yourself without noticing.
+
+## Together with the person in front of the screen
+
+You don't apply this alone. The person you work with is the bridge to the people who will operate the result: they can try it with their own hands, watch others use it, and judge how it feels.
+
+- State the assumption from step 1 where they will see it, so they can correct it. For a small change, mention it only if it changes something (see Scope).
+- Beyond a small change, hand over something they can run, and ask them to try the everyday actions, not to read your description.
+- Their observation is a finding. If they stumble, it is the design, not their mistake; never answer "but it works if you…".
+- They know the product too. When they say "that's obvious", ask the same question you ask yourself: obvious to whom?
+
+## Precedence
+
+The user's explicit request and the project's design system win. If they conflict with this skill, follow them and name the tension in one line. Don't widen the task into a redesign.
+
+## Scope
+
+- **Small change** (one control, no new flow): make it, then ask once: who touches this control, and what do they not know that I do? Mention the answer only if it changes something.
+- **Full workflow** (below): new screens, new flows, and explicit reviews.
 
 ## Stance
 
-- **People first.** Rams called indifference towards people and the reality they live in "the one and only cardinal sin in design." Every decision starts with three questions: **Who** operates this, **when** do they operate it, and **why**?
-- **Frequency shapes the layout.** Short paths for everyday actions. Rare actions stay out of the way, but they're never buried or made needlessly complicated.
-- **Nobody should have to memorize the interface.** People arrive tired, distracted or after a long day. Recognition beats recall.
-- **Depth doesn't come from variety.** A few well-combined elements beat many redundant ones, in tools and especially in games.
-- **Criteria, not dogma.** Rams meant his principles to be weighed and discussed. Use judgment, not box-ticking.
-- **Reduction is not a style.** Rams rejected "minimalism" as a label for his work. Reduce to serve use, not to look minimal: as simple as possible, but not simpler.
-- **Design is engineering.** Rams preferred the term *Gestalt-Ingenieur*. A design that can't be built well isn't finished, and neither is code that works but confuses.
-- **Think before you render.** "Design begins in our heads, not in computers."
-- **Respect attention.** "Less would be better everywhere." Software should let people get done and leave.
+- **Challenge is not friction.** In a game, the difficulty is what people came for, and it stays. Getting in, pausing, saving, leaving, changing settings and finding your way around are operation, never the challenge.
+- **Reduction is not a style.** "Less, but better" is Rams' aim: concentrate on the essentials. Reduce to serve use, not to look minimal.
+- **Criteria, not dogma.** Rams wrote that his principles are "not set in stone" and that each generation should review them. Use judgment, not box-ticking.
+- **Design is engineering.** Rams preferred the term *Gestalt-Ingenieur* to "designer". A design that can't be built well isn't finished, and neither is code that works but confuses.
+- **Respect attention.** Software should let people get done, or get to the fun, and leave when they want.
 
-**Attribution:** Quoted lines are Rams'. Frequency placement, recognition over recall (Nielsen), "depth not variety", the game guidance, the numeric minimums and the conflict ranking are this skill's extensions for software, not Rams' words. Never attribute them to him in reviews.
+**Attribution:** Only text in quotation marks is Rams' wording; principle summaries are paraphrases. "You are not the user", frequency placement, recognition over recall (Nielsen), the variety-is-not-depth rule, "challenge is not friction" and the conflict ranking are this skill's application to software. Never attribute them to Rams.
 
 ## Workflow
 
-### Step 1: Who, when, why
-Before designing, work out the human side. Derive it from the README, docs, existing UI, domain language, issue tracker and the request. Write it in **at most three lines**, not an essay:
-- **Who:** role, experience, and how often (daily power user, weekly, occasional). Don't assume young, tech-savvy users with perfect eyesight and unlimited patience. Many users, and many players, are adults with jobs, families and little spare energy.
-- **When:** situation and state of mind (focused desk work, a quick task between meetings, tired on the sofa in the evening, interrupted halfway), plus device, screen size and input method (mouse/keyboard, touch, gamepad).
-- **Why:** the real goal behind the action ("get the invoice out and go home", "relax for an hour"), not the feature name. The goal decides what must be fast and what may take a step longer.
+For a small change, follow Scope and stop; don't walk these steps or report them.
 
-Then list the actions and sort them by frequency: **every session**, **regularly**, **rarely**.
+### 1. Who, when, why, and what they don't know
+In at most four lines:
+- **Who** operates it: role, experience, how often (every day, now and then, once).
+- **When:** situation and state of mind (focused, rushed, tired in the evening, interrupted halfway), device and the channels they use (mouse, keyboard, controller, pen, touch, voice, often several at once or switching).
+- **Why:** the real goal behind the action ("get the invoice out and go home", "relax for an hour"), not the feature name.
+- **What they don't know that you do:** internal terms, hidden shortcuts, where things live, what happens next.
 
-If the context is unclear and a wrong guess would change the design substantially, ask one short question. Otherwise state your assumption in one line at the top of your output ("Assuming: daily-use internal tool, keyboard-heavy, desktop only") and continue.
+Then sort the actions by frequency: every session, regularly, rarely. State assumptions in one line and continue; ask one short question only if a wrong guess would waste major work.
 
-### Step 2: Settle the concept before the pixels
-Decide the flow, the information hierarchy and every state (empty, loading, error, offline, permission-denied, very long and very short content) before you write polished UI. Don't let a slick mockup hide unresolved structure.
+### 2. Settle the concept before the details
+Decide the flow, what matters most at each point, and every state people can meet (empty, loading, error, offline, nothing allowed, too much content), before polishing anything.
 
-### Step 3: Place actions by frequency
+### 3. Place actions by frequency
+- **Every session:** labeled, and reachable without hunting or remembering: one obvious step, not a search. In a dense tool or a game, a stable place counts (a pause menu, a platform key, the help); don't cover the work or the play with chrome. In a command line: named in the help, everyday form first. A shortcut may speed it up; show it where the action lives so people learn it in passing. It never replaces a way that can be found by looking or browsing.
+- **Regularly:** next to the thing it acts on.
+- **Rarely:** a findable home in plain-language settings or menus, reachable by browsing, never behind hidden gestures, unlabeled symbols or deep nesting.
+- **Recognition beats recall.** Nobody should have to memorize the interface. Show options, keep context visible, and resume where people left off with enough context to remind them what they were doing.
+- **The same kind of situation, the same input.** Keep the platform's meanings (confirm, cancel, undo). A key may mean something else when the situation is visible (a new line in a text field, confirm in a dialog); never give a control a second, surprising meaning.
+- **Combinations speed things up; they are not the only door,** unless the people in step 1 already live with them (a professional tool, a game's own control grammar) and anyone who doesn't still finds another way.
+- **A channel you offer is a full way in for what you offer it for.** Nobody who picked up a controller, a pen or their voice for the everyday actions is stranded halfway (plays but cannot pause or save; reads but cannot confirm). A channel meant for one job (pen to draw, voice to dictate) says so and hands over cleanly.
+- **Hidden things are expensive.** Whatever is only revealed on hover, in an overflow menu or by a gesture must also be reachable another way, and never be an everyday action.
 
-| Frequency | Placement |
-|-----------|-----------|
-| **Every session** | Visible and reachable in one step from the main screen: a labeled primary control or a direct gesture, with an optional single-key accelerator. No menu or dialog in between. **If more than 5–7 actions qualify, the sorting is wrong: re-rank.** Sensible defaults so that often no action is needed at all. |
-| **Regularly** | At most two steps, placed next to the object it acts on (context menu, inline action, the section it belongs to), not in a global menu far away. |
-| **Rarely** | In clearly grouped settings or menus with plain-language labels, out of the main flow. A search or command palette can add a second route, but never replaces browsable grouping, because it requires recalling a term. Never hidden behind obscure gestures, unlabeled icons or sub-sub-menus. |
+### 4. Build it with them in mind
+- Follow platform and project conventions before inventing patterns: what people already know is the cheapest thing to learn.
+- **Earn its place:** for every element, option, dialog or animation, name the task from step 1 it serves. If you can't, leave it out. A few elements that combine well beat many that must each be learned.
+- Words are design work: verbs on buttons, labels in the users' language rather than the code's, errors that say what happened and what to do now.
+- Every action gets immediate feedback people can perceive in the channel they used (seen, heard or felt), and every state stays perceivable (saving, waiting, disabled and why). Input given a moment early is not thrown away.
+- Make mistakes cheap: undo instead of "are you sure?", confirm only what can't be undone and name the consequence, never lose what people entered.
+- Different bodies and situations: poor eyesight, shaky hands, no sound, one free hand, color blindness, a different language. Design for them from the start; the accessibility standards are the minimum they are owed, not the measure of success.
 
-Rules:
-- **Shortcuts accelerate; they never replace.** A bare key is a shortcut, not a path. Every action must be reachable through visible, labeled UI. Show shortcuts where the action lives (menus, tooltips) so people learn them in passing.
-- **No required combos for core actions.** Multi-key chords, long modifier sequences and hidden gestures are fine as optional accelerators, never as the only way.
-- **Consistent mappings.** The same key or button does the same thing everywhere. A small vocabulary of actions that combine beats a large one that must be learned.
-- **Recognition over recall.** Show options instead of expecting people to remember them. Keep context visible across steps, and resume where the user left off.
-- **Progressive disclosure has costs.** Overflow and hamburger menus sharply reduce discoverability, so never put an everyday action there. Hover-only reveals need a touch and keyboard equivalent. "Advanced" sections remember whether they were expanded.
+### 5. Walk through it as them
+Don't judge from the code, and don't judge as yourself. Run it, look at it, and go through the everyday actions as the person from step 1: for the first time, tired, interrupted halfway, without knowing the shortcuts, with each channel they use, their screen, their language and their data (empty, too much, long names). Count the steps to each everyday action. Look for where they would hesitate, guess or get lost.
 
-### Step 4: Build under constraints
-- Follow the platform's and the codebase's conventions before you invent patterns.
-- **Earn-its-place test:** for every element, setting, dialog or animation, name the user task from step 1 it serves. If you can't, leave it out.
-- Use the project's tokens and scales for every value. Nothing arbitrary.
-- Treat labels, units, number formats and microcopy as design work: verbs on buttons, and errors that say what happened and how to fix it.
+Looking is not the whole test. Walk the everyday path with the keyboard only, and by the names and order that someone who cannot see the screen would get. Where sound or vibration carries information, walk one path without it. Looking and not seeing a problem is not evidence.
 
-**Measurable minimums:**
-- **Targets:** ≥24×24 CSS px for pointer (WCAG 2.2 AA), ≥44×44 pt for touch. Frequent targets larger and near where the pointer or thumb already is (Fitts's law).
-- **Response:** react within 100 ms. Show an indicator after ~1 s. Show progress plus a cancel option after ~10 s.
-- **Motion:** transitions 150–250 ms, never blocking input. Respect reduced-motion settings.
-- **Contrast:** 4.5:1 for text, 3:1 for large text and UI components. Focus always visible and never obscured. Never convey information by color alone.
-- **Destructive actions:** confirm only irreversible ones (sent, paid, permanently deleted), and name the consequence on the button ("Delete 12 files"), never "OK". Everything reversible: do it immediately and offer undo for 5–10 s.
-- **Forms:** validate on blur or submit, not on every keystroke. Never discard entered input on error or navigation.
-- **Async status:** announce changes to screen readers (live region). No keyboard traps.
+Fix what you find, then walk through again. **If you could not run or see it, say so.** Never claim it works for people when you haven't looked.
 
-### Step 5: Look at it
-Don't judge a UI from its code alone. Render it and inspect the result with whatever is available: a browser or screenshot tool, Playwright, or running the app and capturing a screenshot. Check at least:
-- **Widths:** narrow (~360 px), medium (~768 px), wide (~1440 px). For desktop apps, small and large window sizes.
-- **Themes:** light and dark, if both are supported.
-- **Content stress:** very long strings, empty data, many items, and localized text. German sentences run ~30% longer than English, and short labels can double or triple.
-- **Zoom and text scaling:** 200%.
-- **Keyboard only:** tab through the screen; focus is visible and in a sensible order. For games, do the same with a controller.
-- **Interaction states:** hover, focus, active, disabled, loading and error states actually render.
-- **Path count:** walk the top everyday actions and count the steps.
+### 6. Check
+With evidence, never just "yes" (a step count, a named state, where something is found, a file reference):
+- **People:** who/when/why, and how a tired or interrupted person gets through.
+- **Frequency:** the top everyday actions and their steps; where each rare action lives and how it is found without remembering.
+- **Understanding:** controls whose purpose isn't clear from their label, name or prompt; states people cannot perceive.
+- **Interruptions:** every popup, notice, badge, sound and vibration, and why it has to interrupt.
+- **Honesty:** anything misleading, pushy, or harder to undo than to do.
+- **Changes:** what people had learned that now works differently, and how they are helped across.
+- **Essentials:** what could be removed without anyone missing it.
 
-Fix what you see, then look again. **If you have no way to see the result, say so explicitly.** Never claim it looks right when you haven't looked.
-
-### Step 6: Review against the checklist
-**Answer each row with evidence (a count, a named state, a measured value or a file reference), never just "yes".** If you can't produce evidence, the row is unverified: say so.
-
-| ID | Evidence to produce |
-|----|---------------------|
-| Core A | Who/when/why in ≤3 lines, including how a tired or interrupted user gets through. |
-| Core B | Top three everyday actions with their step counts (target: 1). Where each rare action lives, and how it's found without memorizing. |
-| P1 | Each non-standard pattern, and the problem a convention couldn't solve. |
-| P2 | Primary task step count; whether it works with no shortcut knowledge; whether it works without the mouse. |
-| P3 | Values outside the token/scale system; decoration that costs legibility or speed. |
-| P4 | Any control whose purpose isn't clear from its label; any state that isn't visible (saving, syncing, disabled and why). |
-| P5 | Every interruption (modal, popup, badge, toast) and the reason it exists. |
-| P6 | Anything misleading, overclaiming, attention-grabbing, or harder to undo than to do. |
-| P7 | Changed conventions, shortcuts or terminology versus the previous version or platform. |
-| P8 | Missing states, missing undo, keyboard/controller gaps, measured contrast and target sizes. |
-| P9 | Idle cost (polling, timers, frame rate, bundle size), visual noise. |
-| P10 | Elements whose removal breaks nothing; variety that adds things to learn without adding meaningful choices. |
-
-## Tools vs. games
-- A **tool** removes friction: the fastest path to the user's goal wins.
-- A **game** may add *deliberate* friction where it *is* the designed challenge, including inventory limits or diegetic UI if that's the point. Pause, save/quit, settings and accessibility are always frictionless.
-
-### Games for adults with limited time and energy
-Many players are adults who play in the evening, tired from the day, in short or interrupted sessions. Design for them by default:
-- **Small, consistent control vocabulary.** A handful of inputs that work context-sensitively and mean the same thing in every mode. No combos to memorize for core actions.
-- **Depth from interaction, not inventory.** Depth comes from a few systems that combine in interesting ways, not from dozens of currencies, item tiers, skill trees or button combinations. If a new system mainly adds things to remember, cut or merge it.
-- **Respect the session.** In single-player, a suspend-save on quit is mandatory, and checkpoints are frequent. On resume, show a one-line "where was I / what was I doing" recap plus the current control prompts. Never punish stepping away. Multiplayer and permadeath designs may restrict this deliberately, but say so up front.
-- **Low memory load.** Quest goals, controls and key information can be looked up in-game at any moment.
-- **Controller first.** Focus always visible, with initial focus on the most common *safe* item. The same button cancels/goes back everywhere. Button glyphs follow the active input device. No pointer-only targets. "Quit without saving" needs hold-to-confirm.
-- **Couch distance.** Body text ≥ ~28 px at 1080p (readable at ~3 m), scalable, with a high-contrast HUD and subtitles on by default.
-- **Onboarding.** Teach one input at a time, in play. Contextual prompts fade once mastered. Tutorials are skippable for returning players.
-- **Settings baseline.** Full remapping, sensitivity, invert axes, camera shake, motion blur, FOV, separate volume sliders, colorblind modes, and difficulty changeable mid-game without penalty or shame.
-- Game feel can't be judged from code: for mechanics, recommend playtesting rather than claiming a verdict.
+When building, answer in a few lines of prose, only the rows that need an answer; never paste the checklist. When reviewing, use it as your own checklist and report only findings, in the format below.
 
 ## When principles conflict
 This ranking is the skill's, not Rams':
-1. Honest (6) is non-negotiable.
-2. Useful (2) and Understandable (4) come before Aesthetic (3) and Minimal (10).
-3. Hiding a needed function is not minimalism. Minimal means fewer *unnecessary* things, never less clarity, and rare functions still need a findable home.
+1. Honest is non-negotiable.
+2. Useful and understandable come before aesthetic and minimal.
+3. Hiding a needed function is not minimalism. Minimal means fewer *unnecessary* things, never less clarity.
 
 ## Review output format
 
-When asked to review, report findings ordered by severity, then user impact. Skip anything you can't tie to a real user consequence.
+Findings ordered by how much they hurt people. Skip anything you can't tie to a real consequence for someone operating it; no restyling by taste.
 
 ```
-[Severity: high|medium|low] <Core A|Core B|Principle N>: <short title>
-Where: <screen / component / file:line>
-Problem: <what the user experiences>
+[Severity: high|medium|low] <principle or check>: <short title>
+Where: <screen / component / command / setting / file:line>
+Problem: <what the person experiences>
 Fix: <concrete change>
 ```
 
-- **high:** loses work, misleads, blocks a task, or excludes users (a11y failure).
-- **medium:** adds steps to an everyday action, or hides a needed function.
+- **high:** people lose work, are misled, get stuck, or are shut out.
+- **medium:** an everyday action takes extra steps, or a needed function is hard to find.
 - **low:** polish and consistency.
 
-End with the two or three changes that would improve the experience the most, and say whether you inspected the rendered UI or only the code. If the UI is in good shape, say so briefly instead of inventing findings.
-
----
-
-# Part 2: Reference, the ten principles in detail
-
-### 1. Good design is innovative
-Rams: new design only arises together with new technology and new functionality, never as restyling.
-- **Tools:** Rethink workflows; don't bolt on features. Could this task need fewer steps altogether?
-- **Games:** Innovation lives in mechanics and feel, not in unusual menu layouts or control schemes players must relearn.
-- **Anti-patterns:** Custom scrollbars, reinvented form controls, gesture-only navigation without a visible alternative.
-
-### 2. Good design makes a product useful
-Rams: the job is not superficial polishing but making the product usable. Remove anything that gets in the way of use.
-- **Tools:** Bulk actions for repeated work, fast startup, defaults that make the common case zero-click.
-- **Games:** Controls respond instantly, with input buffering so presses just before an action becomes available aren't lost. Unskippable sequences and slow menus block the player.
-
-### 3. Good design is aesthetic
-"Only well-executed objects can be beautiful": appeal comes from a convincing concept and execution, not ornament.
-- **Tools:** Consistent spacing scale, few type sizes, clear hierarchy.
-- **Games:** The visual and audio language carries the atmosphere, and the UI matches the world's tone, as long as styling never costs legibility or speed.
-- **Anti-patterns:** Mixed icon styles, decorative gradients, glows and chrome, animation that delays interaction.
-
-### 4. Good design makes a product understandable
-Rams: at best a product is self-explanatory, and explains itself without a long manual. At Braun, scales and labels on the device were core design work. In software, that work is labels, units, data display and microcopy.
-- **Tools:** Immediate feedback for every action; errors that say what happened and how to fix it.
-- **Games:** Teach through level design and play, not walls of text.
-
-### 5. Good design is unobtrusive
-Rams: products that serve a purpose are like tools. They should be neutral and restrained, to leave room for the user's self-expression. The user's content, and in games the player's agency, is the hero.
-- **Tools:** No unprompted popups, nags, badges or "what's new" interruptions mid-task. Prefer inline, non-blocking feedback over modals.
-- **Games:** Keep the HUD minimal, contextual and diegetic where sensible.
-- **Anti-patterns:** Modal confirmation for reversible actions, notification spam, attention-grabbing animation on idle elements.
-
-### 6. Good design is honest
-Rams: a product must never appear more innovative, powerful or valuable than it really is, and it doesn't manipulate.
-- **Tools:** Buttons do exactly what they say. Progress bars reflect real progress. Cancelling is as easy as subscribing. Privacy choices are neutral, with nothing pre-checked.
-- **Overclaiming:** No inflated copy, no fake "magic" or AI framing for simple logic, no fake activity indicators or artificial delays.
-- **Attention:** The user controls the software, not the other way round. No engagement-maximizing loops, streak pressure or infinite feeds in tools.
-- **Games:** No manipulative monetization, loot-box odds disclosed up front, no fake scarcity timers, no daily-login pressure, no compulsion loops.
-- **Anti-patterns:** Dark patterns of any kind (confirmshaming, hidden costs, disguised ads, roach-motel flows, misleading defaults).
-
-### 7. Good design is long-lasting
-Rams: good design avoids being fashionable, so it never looks dated.
-- **Tools:** Keep layouts, shortcuts and terminology stable across versions. Don't break muscle memory without strong reason, and provide migration hints when you must. Don't redesign for its own sake.
-- **Games:** The game still works years later: no needless always-online dependency, and saves and settings survive updates.
-
-### 8. Good design is thorough down to the last detail
-Rams: nothing must be arbitrary or left to chance, because care in the details shows respect for the user.
-- **Interaction details:** Focus management, sensible tab order, preserved scroll position and input on navigation, resume after interruption.
-- **Accessibility:** Screen-reader labels, scalable text, reduced motion, plus the minimums in step 4.
-
-### 9. Good design is environmentally friendly
-Respect the user's resources: CPU, memory, battery, bandwidth, storage and attention. Rams counted visual pollution as harm too, so visual noise is a cost.
-- **Tools:** Small bundles, lazy loading, no needless background polling, minimal tracking, idle means idle.
-- **Games:** Frame-rate caps (especially in menus), efficient pause states, scalable settings for older hardware, reasonable patch sizes.
-
-### 10. Good design is as little design as possible
-Less, but better: concentrate on the essentials and don't burden the product with non-essentials. Late in life Rams extended this to "less would be better everywhere".
-- **Tools:** Fewer options with great defaults beat a settings maze. Remove before you add.
-- **Games:** A few deep systems beat many shallow ones. Variety that only adds things to learn, without new meaningful choices, is not depth.
+End with the two or three changes that would help people most, and say whether you ran and looked at it or only read the code. If it is in good shape, say so briefly instead of inventing findings.
