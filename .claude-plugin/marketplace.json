@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "rams-design-for-use",
+  "description": "Dieter Rams' design philosophy for how software is used, as a Claude Code plugin.",
+  "owner": {
+    "name": "SACRVM",
+    "url": "https://github.com/SACRVM"
+  },
+  "plugins": [
+    {
+      "name": "rams-design-for-use",
+      "description": "Dieter Rams' design philosophy applied to how software is used: apps, tools and games alike, through every channel. You design for other people, never for yourself or for the AI.",
+      "source": "./",
+      "category": "design",
+      "homepage": "https://github.com/SACRVM/rams-design-for-use"
+    }
+  ]
+}

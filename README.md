@@ -6,17 +6,28 @@ Its core idea: you are designing for other people, never for yourself or for the
 
 ## Contents
 
+A Claude Code plugin with one skill, in `skills/rams-design-for-use/`:
+
 - `SKILL.md`: the philosophy, the workflow and the review format. Loaded when the skill triggers.
 - `references/principles.md`: Rams' ten principles applied to operation, with failure patterns. Loaded on demand, always before a review.
 - `references/braun.md`: what made Braun under Rams different, in sourced voices, and what it means for software. Loaded on demand.
 
 ## Install
 
-```bash
-git clone https://github.com/SACRVM/rams-design-for-use.git ~/.claude/skills/rams-design-for-use
+In Claude Code (2.1.275 or later):
+
+```
+/plugin install rams-design-for-use --marketplace SACRVM/rams-design-for-use
 ```
 
-Claude Code picks it up in new sessions. Update with `git -C ~/.claude/skills/rams-design-for-use pull`.
+On older versions, add the marketplace first, then install:
+
+```
+/plugin marketplace add SACRVM/rams-design-for-use
+/plugin install rams-design-for-use@rams-design-for-use
+```
+
+Update with `/plugin update rams-design-for-use`.
 
 ## Sources
 
