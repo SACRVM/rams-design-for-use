@@ -1,6 +1,6 @@
 ---
 name: rams-design-for-use
-description: "Dieter Rams' design philosophy applied to how software is used, the ergonomics of operating apps, tools and games alike, through every channel (mouse, keyboard, controller, pen, touch, voice) and not only the visible interface. Its core: you design for other people, never for yourself or for the AI, so never infer from your own knowledge, habits or abilities. Use when designing, building or reviewing anything people operate (screens, dialogs, forms, menus, toolbars, settings, HUDs, onboarding, error messages, notifications, wording and labels, shortcuts, controller, pen, touch or voice input, command-line tools, configuration), or when asked whether something is clear, usable, accessible, cluttered, confusing, inconsistent or tiring. Not for backend-only work or bug fixes with no effect on how something is operated."
+description: "Dieter Rams' design philosophy applied to how software is used, the ergonomics of operating apps, tools and games alike, through every channel (mouse, keyboard, controller, pen, touch, voice) and not only the visible interface. Its core: you design for other people, never for yourself, so never infer from your own knowledge, habits or abilities. Use when designing, building or reviewing anything people operate (screens, dialogs, forms, menus, toolbars, settings, HUDs, onboarding, error messages, notifications, wording and labels, shortcuts, controller, pen, touch or voice input, command-line tools, configuration), or when asked whether something is clear, usable, accessible, cluttered, confusing, inconsistent or tiring. Not for backend-only work or bug fixes with no effect on how something is operated."
 ---
 
 # Designing for others: Dieter Rams' design philosophy applied to how software is used
@@ -9,15 +9,25 @@ Rams designed physical products at Braun, not software, and he wrote no rules fo
 
 It is about use: how easily people find, understand, reach and trust what they need, in an app, a tool or a game alike. Use is more than the visible interface. People operate software with mouse, keyboard, controller, pen, touch and voice, and through what they hear, feel and type outside any window: sounds and vibration, notifications, commands, configuration. Every one of these channels is part of the design.
 
-This is a philosophy, not a rulebook: its purpose is to make you internalize what matters and to keep that awareness awake while you work. It gives you no fixed values (sizes, spacing, colors, timings, contrast), because good values follow from the people and their situation, not from a table. When you set or create them, derive each one from the people in step 1 (for a small change: the people who touch this control): how far away they are, what they hold, how well they see and hear, how tired they are. Say in one line which person and situation a new value serves, so it can be checked. Platform guidelines and accessibility standards are the floor, not the goal. Where the project already has a design system, work within it; where it fails the people in step 1, say so in one line (see Precedence).
+This is a philosophy, not a rulebook: its purpose is to make you internalize what matters and to keep that awareness awake while you work. It gives you no fixed values (sizes, spacing, colors, timings, contrast), because good values follow from the people and their situation, not from a table.
 
-References, read when needed (skip both for small changes):
+## Scope
+
+- **Small change** (one control, no new flow): make it, then ask once: who touches this control, and what do they not know that I do? Mention the answer only if it changes something. Nothing else here applies: no workflow, no references, no report.
+- **Everything else** (new screens, new flows, explicit reviews): the whole skill.
+
+## Precedence
+
+The user's explicit request and the project's design system win. If they conflict with this skill, follow them and name the tension in one line. Don't widen the task into a redesign.
+
+## References, read when needed
+
 - `references/principles.md`: the ten principles applied to operation, with failure patterns. Always read it before an explicit review, or when unsure how a principle applies.
 - `references/braun.md`: what made Braun under Rams different, in sourced voices, and what it means for software. Read it when you need the spirit behind a decision, or the person asks why.
 
 ## The one idea: you are not the user
 
-Whatever you are working on, you are not making it for yourself or for the AI. If you were the only one who ever operates it, you would not need this skill. You are making it for other people, and they are not like you.
+Whatever you are working on, you are not making it for yourself, and not for the person you are building it with either. If the two of you were the only ones who ever operate it, you would not need this skill. You are making it for other people, and they are not like you.
 
 You know things they don't:
 - You know how it works inside, what every term means, and why it was built this way.
@@ -37,19 +47,10 @@ Rams called indifference towards people and the reality they live in "the one an
 
 You don't apply this alone. The person you work with is the bridge to the people who will operate the result: they can try it with their own hands, watch others use it, and judge how it feels.
 
-- State the assumption from step 1 where they will see it, so they can correct it. For a small change, mention it only if it changes something (see Scope).
-- Beyond a small change, hand over something they can run, and ask them to try the everyday actions, not to read your description.
+- State the assumption from step 1 where they will see it, so they can correct it.
+- Hand over something they can run, and ask them to try the everyday actions, not to read your description.
 - Their observation is a finding. If they stumble, it is the design, not their mistake; never answer "but it works if you…".
 - They know the product too. When they say "that's obvious", ask the same question you ask yourself: obvious to whom?
-
-## Precedence
-
-The user's explicit request and the project's design system win. If they conflict with this skill, follow them and name the tension in one line. Don't widen the task into a redesign.
-
-## Scope
-
-- **Small change** (one control, no new flow): make it, then ask once: who touches this control, and what do they not know that I do? Mention the answer only if it changes something.
-- **Full workflow** (below): new screens, new flows, and explicit reviews.
 
 ## Stance
 
@@ -62,8 +63,6 @@ The user's explicit request and the project's design system win. If they conflic
 **Attribution:** Only text in quotation marks is Rams' wording; principle summaries are paraphrases. "You are not the user", frequency placement, recognition over recall (Nielsen), the variety-is-not-depth rule, "challenge is not friction" and the conflict ranking are this skill's application to software. Never attribute them to Rams.
 
 ## Workflow
-
-For a small change, follow Scope and stop; don't walk these steps or report them.
 
 ### 1. Who, when, why, and what they don't know
 In at most four lines:
@@ -78,22 +77,23 @@ Then sort the actions by frequency: every session, regularly, rarely. State assu
 Decide the flow, what matters most at each point, and every state people can meet (empty, loading, error, offline, nothing allowed, too much content), before polishing anything.
 
 ### 3. Place actions by frequency
-- **Every session:** labeled, and reachable without hunting or remembering: one obvious step, not a search. In a dense tool or a game, a stable place counts (a pause menu, a platform key, the help); don't cover the work or the play with chrome. In a command line: named in the help, everyday form first. A shortcut may speed it up; show it where the action lives so people learn it in passing. It never replaces a way that can be found by looking or browsing.
+How often people need something decides how close it is. What counts as everyday and as already known is decided by the people in step 1, not by you: a tool professionals live in all day and a game's own control grammar are learned once and may be dense; something used now and then may not.
+- **Every session:** labeled, and reachable without hunting or remembering. A stable place counts (a pause menu, a platform key, the first lines of the help); don't cover the work or the play with controls.
 - **Regularly:** next to the thing it acts on.
-- **Rarely:** a findable home in plain-language settings or menus, reachable by browsing, never behind hidden gestures, unlabeled symbols or deep nesting.
+- **Rarely:** a findable home in plain-language settings or menus, reachable by browsing.
+- **Shortcuts, combinations and gestures speed things up; they are never the only way in.** Show them where the action lives so people learn them in passing. Whatever is revealed only on hover, in an overflow menu or by a gesture also has a way that can be found by looking.
 - **Recognition beats recall.** Nobody should have to memorize the interface. Show options, keep context visible, and resume where people left off with enough context to remind them what they were doing.
-- **The same kind of situation, the same input.** Keep the platform's meanings (confirm, cancel, undo). A key may mean something else when the situation is visible (a new line in a text field, confirm in a dialog); never give a control a second, surprising meaning.
-- **Combinations speed things up; they are not the only door,** unless the people in step 1 already live with them (a professional tool, a game's own control grammar) and anyone who doesn't still finds another way.
+- **The same situation, the same input.** Keep the platform's meanings (confirm, cancel, undo) and never give a control a second, surprising meaning. A key may differ where the situation is visible (Enter in a text field and in a dialog).
 - **A channel you offer is a full way in for what you offer it for.** Nobody who picked up a controller, a pen or their voice for the everyday actions is stranded halfway (plays but cannot pause or save; reads but cannot confirm). A channel meant for one job (pen to draw, voice to dictate) says so and hands over cleanly.
-- **Hidden things are expensive.** Whatever is only revealed on hover, in an overflow menu or by a gesture must also be reachable another way, and never be an everyday action.
 
 ### 4. Build it with them in mind
 - Follow platform and project conventions before inventing patterns: what people already know is the cheapest thing to learn.
 - **Earn its place:** for every element, option, dialog or animation, name the task from step 1 it serves. If you can't, leave it out. A few elements that combine well beat many that must each be learned.
 - Words are design work: verbs on buttons, labels in the users' language rather than the code's, errors that say what happened and what to do now.
 - Every action gets immediate feedback people can perceive in the channel they used (seen, heard or felt), and every state stays perceivable (saving, waiting, disabled and why). Input given a moment early is not thrown away.
-- Make mistakes cheap: undo instead of "are you sure?", confirm only what can't be undone and name the consequence, never lose what people entered.
-- Different bodies and situations: poor eyesight, shaky hands, no sound, one free hand, color blindness, a different language. Design for them from the start; the accessibility standards are the minimum they are owed, not the measure of success.
+- Make mistakes cheap, in every channel: whatever deletes or overwrites can be undone or recovered (an undo, a trash, a kept copy), in a command line as much as in a dialog. Only where that is impossible, ask first and name exactly what will be lost. Never lose what people entered.
+- Different bodies and situations: poor eyesight, shaky hands, no sound, one free hand, color blindness, a different language. Design for them from the start.
+- Values come from people: when you set a size, a spacing, a timing or a contrast, derive it from the people in step 1 (how far away they are, what they hold, how well they see and hear, how tired they are) and say in one line whom it serves, so it can be checked. Platform guidelines and accessibility standards are the floor, not the goal. Where the project has a design system, work within it; where it fails these people, say so in one line.
 
 ### 5. Walk through it as them
 Don't judge from the code, and don't judge as yourself. Run it, look at it, and go through the everyday actions as the person from step 1: for the first time, tired, interrupted halfway, without knowing the shortcuts, with each channel they use, their screen, their language and their data (empty, too much, long names). Count the steps to each everyday action. Look for where they would hesitate, guess or get lost.

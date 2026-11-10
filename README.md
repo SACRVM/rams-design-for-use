@@ -29,6 +29,10 @@ On older versions, add the marketplace first, then install:
 
 Update with `/plugin update rams-design-for-use`.
 
+## Evals
+
+`evals/` holds twelve cases for `claude plugin eval`: five reviews with planted defects and things that must not be flagged, three builds, two small changes, one case where an explicit decision takes precedence, and one where the skill must not load. Run them with `claude plugin eval .` from the repository root; each case also runs without the plugin for comparison.
+
 ## Sources
 
 Rams' ten principles as published by [Vitsœ](https://www.vitsoe.com/gb/about/good-design); Rams' 1976 speech "Design by Vitsœ"; Fritz Eichler's ten theses on Braun design (1972/73); and further sources linked in `references/braun.md`. Quotations are short, attributed and marked as such; everything else is paraphrase or this skill's own application to software.
